@@ -1,0 +1,112 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block dashboardcontent %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/fontawesome-5.0.8/css/fontawesome-all.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/util.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+
+
+	<section style="padding: 15px" class="bg0 p-b-140 p-t-10">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-10 col-lg-8 p-b-30">
+						<div class="p-r-10 p-r-0-sr991">
+							<!-- Blog Detail -->
+							<div class="p-b-70">
+								<h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
+									{{forum.title}}
+								</h3>
+								
+								<div class="flex-wr-s-s p-b-40">
+									<span class="f1-s-3 cl8 m-r-15">
+										<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+											by {{forum.author.pet_owner.name}}
+										</a>
+
+										<span class="m-rl-3">-</span>
+
+										<span>
+											{{forum.date_time}}
+										</span>
+									</span>
+
+
+								</div>
+
+								<div class="wrap-pic-max-w p-b-30">
+									<img src="{{forum.image.url}}" alt="IMG">
+								</div>
+
+								<p class="f1-s-11 cl6 p-b-25">
+									{{forum.details}}
+								</p>
+
+
+
+
+							<!-- Leave a comment -->
+							<div>
+								{% for comment in comments %}
+								<div class="comments-view">
+									<div class="comments-list">
+										<h3 class="com-name">{{comment.author.pet_owner.name}} <span class="comments">{{comment.comment}}</span></h3>
+
+									</div>
+								</div>
+								{% endfor %}
+
+
+								<h4 class="f1-l-4 cl3 p-b-12 mrg-top-20">
+									Leave a Comment
+								</h4>
+
+
+								<form action="" method="POST">
+									{% csrf_token %}
+<!--									<input class="bo-1-rad-3 bocl13 size-a-16 input-size f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="name" placeholder="Name*">-->
+<!--									<textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" name="msg" placeholder="Comment..."></textarea>-->
+									{{form.comment | add_class:"form-control" }}
+									<button type="submit" class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10">Post Comment</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Sidebar -->
+				</div>
+			</div>
+			</div>
+	</section>
+
+
+
+
+
+
+
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
+{% block forums %}
+<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+<a  href="{% url 'pets:forums' %}" class="kt-menu__link kt-menu__toggle">
+<i class="kt-menu__link-icon flaticon2-laptop"></i>
+<span class="kt-menu__link-text">Forums</span>
+<i class="kt-menu__ver-arrow la la-angle-right"></i>
+</a>
+</li>
+{% endblock %}
+
+

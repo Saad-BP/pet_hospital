@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block maincontent %}
+
+<!-- Breadcrumb -->
+	<!-- <div class="container">
+		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 m-tb-6">
+				<a href="{% url 'common:home' %}" class="breadcrumb-item f1-s-3 cl9">
+					Home 
+				</a>
+
+				<a href="{% url 'common:blogs' %}" class="breadcrumb-item f1-s-3 cl9">
+					Blog 
+				</a>
+
+				<span class="breadcrumb-item f1-s-3 cl9">
+					{{ blog.title }}
+				</span>
+			</div>
+
+		</div>
+	</div> -->
+
+	<!-- Content -->
+	<section class="bg0 p-b-140 p-t-10 ">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-12 p-b-30">
+					<div class="p-r-10 p-r-0-sr991">
+						<!-- Blog Detail -->
+						<div class="p-b-70">
+
+							<h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
+								{{ blog.title }}
+							</h3>
+							
+							<div class="flex-wr-s-s p-b-40">
+								<span class="f1-s-3 cl8 m-r-15">
+									<span>
+										{{ blog.date }}
+									</span>
+								</span>
+							</div>
+
+							<div class="wrap-pic-w p-b-30">
+								<img src="{{ blog.image.url }}" alt="IMG">
+							</div>
+
+							<p class="f1-s-11 cl6 p-b-25">
+								{{ blog.text }} 
+							</p>
+
+							<!-- Share -->
+							<div class="flex-s-s">
+								<span class="f1-s-12 cl5 p-t-1 m-r-15">
+									Share:
+								</span>
+								
+								<div class="flex-wr-s-s size-w-0">
+									<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+										<i class="fab fa-facebook-f m-r-7"></i>
+										Facebook
+									</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Sidebar -->
+				<!-- <div class="col-md-10 col-lg-4 p-b-30">
+					<div class="p-l-10 p-rl-0-sr991 p-t-70">
+						<div class="p-b-60">
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Category
+								</h3>
+							</div>
+
+							<ul class="p-t-35">
+								<li class="how-bor3 p-rl-4">
+									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+										Fashion
+									</a>
+								</li>
+
+								<li class="how-bor3 p-rl-4">
+									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+										Beauty
+									</a>
+								</li>
+
+								<li class="how-bor3 p-rl-4">
+									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+										Street Style
+									</a>
+								</li>
+
+								<li class="how-bor3 p-rl-4">
+									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+										Life Style
+									</a>
+								</li>
+
+								<li class="how-bor3 p-rl-4">
+									<a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+										DIY & Crafts
+									</a>
+								</li>
+							</ul>
+						</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

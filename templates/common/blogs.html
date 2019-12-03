@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block maincontent %}
+
+
+	<!-- Breadcrumb -->
+	<!-- <div class="container">
+		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+                    <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
+                    <button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03" type="submit">
+                        <i class="zmdi zmdi-search"></i>
+                    </button>
+                </div>
+            </form>
+		</div>
+	</div> -->
+
+	<!-- Page heading -->
+	<!-- <div class="container p-t-4 p-b-40">
+		<h2 class="f1-l-1 cl2">
+			Blog List
+		</h2>
+	</div> -->
+
+	<!-- Post -->
+	<section class="bg0 p-b-55 mrg-top-40">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-8 p-b-80">
+					<div class="p-r-10 p-r-0-sr991">
+						<div class="m-t--40 p-b-40">
+							<!-- Item post -->
+							{% for blog in blogs %}
+							<div class="flex-wr-sb-s p-t-40 p-b-15 how-bor2">
+								<a href='{% url "common:blog_details" blog.id %}' class="size-w-8 wrap-pic-w hov1 trans-03 w-full-sr575 m-b-25">
+									<img src="{{ blog.image.url }}" alt="IMG">
+								</a>
+
+								<div class="size-w-9 w-full-sr575 m-b-25">
+									<h5 class="p-b-12">
+										<a href='{% url "common:blog_details" blog.id %}' class="f1-l-1 cl2 hov-cl10 trans-03 respon2">
+											{{ blog.title }}
+										</a>
+									</h5>
+
+									<div class="cl8 p-b-18">
+										<span class="f1-s-3">
+											{{ blog.date }}
+										</span>
+									</div>
+
+									<p class="f1-s-1 cl6 p-b-24">
+										{{ blog.short_description }}
+									</p>
+
+									<a href='{% url "common:blog_details" blog.id %}' class="f1-s-1 cl9 hov-cl10 trans-03">
+										Read More
+										<i class="m-l-2 fa fa-long-arrow-alt-right"></i>
+									</a>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+
+						<!-- <a href="#" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03">
+							Load More
+						</a> -->
+					</div>
+				</div>
+
+				<div class="col-md-10 col-lg-4 p-b-80">
+					<div class="p-l-10 p-rl-0-sr991">
+
+
+						<!-- Most Popular -->
+						<!-- Archive -->
+{#						<div class="p-b-37">#}
+{#							<div class="how2 how2-cl4 flex-s-c">#}
+{#								<h3 class="f1-m-2 cl3 tab01-title">#}
+{#									Archive#}
+{#								</h3>#}
+{#							</div>#}
+{##}
+{#							<ul class="p-t-32">#}
+{#								<li class="p-rl-4 p-b-19">#}
+{#									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">#}
+{#										<span>#}
+{#											July 2018#}
+{#										</span>#}
+{##}
+{#										<span>#}
+{#											(9)#}
+{#										</span>#}
+{#									</a>#}
+{#								</li>#}
+{##}
+{#								<li class="p-rl-4 p-b-19">#}
+{#									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">#}
+{#										<span>#}
+{#											June 2018#}
+{#										</span>#}
+{##}
+{#										<span>#}
+{#											(39)#}
+{#										</span>#}
+{#									</a>#}
+{#								</li>#}
+{##}
+{#								<li class="p-rl-4 p-b-19">#}
+{#									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">#}
+{#										<span>#}
+{#											May 2018#}
+{#										</span>#}
+{##}
+{#										<span>#}
+{#											(29)#}
+{#										</span>#}
+{#									</a>#}
+{#								</li>#}
+{##}
+{#								<li class="p-rl-4 p-b-19">#}
+{#									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">#}
+{#										<span>#}
+{#											April  2018#}
+{#										</span>#}
+{##}
+{#										<span>#}
+{#											(35)#}
+{#										</span>#}
+{#									</a>#}
+{#								</li>#}
+{##}
+{#								<li class="p-rl-4 p-b-19">#}
+{#									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">#}
+{#										<span>#}
+{#											March 2018#}
+{#										</span>#}
+{##}
+{#										<span>#}
+{#											(22)#}
+{#										</span>#}
+{#									</a>#}
+{#								</li>#}
+{##}
+{#								<li class="p-rl-4 p-b-19">#}
+{#									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">#}
+{#										<span>#}
+{#											February 2018#}
+{#										</span>#}
+{##}
+{#										<span>#}
+{#											(32)#}
+{#										</span>#}
+{#									</a>#}
+{#								</li>#}
+{##}
+{#								<li class="p-rl-4 p-b-19">#}
+{#									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">#}
+{#										<span>#}
+{#											January 2018#}
+{#										</span>#}
+{##}
+{#										<span>#}
+{#											(21)#}
+{#										</span>#}
+{#									</a>#}
+{#								</li>#}
+{##}
+{#								<li class="p-rl-4 p-b-19">#}
+{#									<a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">#}
+{#										<span>#}
+{#											December 2017#}
+{#										</span>#}
+{##}
+{#										<span>#}
+{#											(26)#}
+{#										</span>#}
+{#									</a>#}
+{#								</li>#}
+{#							</ul>#}
+{#						</div>#}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

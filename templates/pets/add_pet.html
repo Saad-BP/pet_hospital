@@ -1,0 +1,173 @@
+{% extends 'base_dashboard.html' %}
+
+{% load bootstrap4 %}
+{% load static %}
+{% load widget_tweaks %}
+{% block dashboardcontent %} 
+
+<div class="kt-portlet kt-portlet--mobile">
+	<div class="kt-portlet__head kt-portlet__head--lg">
+		<div class="kt-portlet__head-label">
+			<h3 class="kt-portlet__head-title">
+				Add your pet here
+			</h3>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+	  <div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="kt-portlet__body">
+		<div class="kt-portlet">
+			<form action="" method="post" class="kt-form" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="kt-portlet__body">
+			
+						<div class="mrg-btm-20">
+							<label>Name:</label>
+							{{ form.name.errors }}
+							{{ form.name | add_class:"form-control" }}
+						</div>
+						<div class="mrg-btm-20">
+							<label>Animal type:</label>
+							{{ form.animal_type.errors }}
+
+							{{ form.animal_type | add_class:"form-control" }}
+						</div>
+						<div class="mrg-btm-20">
+							<label>Color:</label>
+							{{ form.color.errors }}
+							{{ form.color | add_class:"form-control" }}
+						</div>
+						<div class="mrg-btm-20">
+							<label>Date of Birth:</label>
+							{{ form.date_of_birth.errors }}
+							{{ form.date_of_birth | add_class:"form-control" }}
+
+						</div>
+						
+					
+
+					<div class="form-group row">
+						<div class="col-md-4 mrg-btm-20">
+							<label>Profile Photo:</label>
+							{{ form.profile_photo.errors }}
+							{{ form.profile_photo | add_class:"form-control" }}
+
+							<!-- <div class="form-group" style="margin-top:10px" >
+								<label>Profile:</label>
+								<div></div>
+								<div class="custom-file">
+								  	<input type="file" class="custom-file-input" id="customFile">
+								  	<label class="custom-file-label" for="customFile">Choose file</label>
+								</div>
+							</div> -->
+						</div>
+
+						<div class="col-md-4 mrg-btm-20">
+							<label>First Image:</label>
+							{{ form.first_image | add_class:"form-control" }}
+
+							<!-- div class="form-group" style="margin-top:10px" >
+								<label>First Image:</label>
+								<div></div>
+								<div class="custom-file">
+								  	<input type="file" class="custom-file-input" id="customFile">
+								  	<label class="custom-file-label" for="customFile">Choose file</label>
+								</div>
+							</div> -->
+						</div>
+
+						<div class="col-md-4 mrg-btm-20">
+							<label>Second Image:</label>
+							{{ form.second_image | add_class:"form-control" }}
+
+							<!-- <div class="form-group" style="margin-top:10px" >
+								<label>Second Image:</label>
+								<div></div>
+								<div class="custom-file">
+								  	<input type="file" class="custom-file-input" id="customFile">
+								  	<label class="custom-file-label" for="customFile">Choose file</label>
+								</div>
+							</div> -->
+						</div>
+
+						<div class="col-md-4 mrg-btm-20">
+							<label>Third Image:</label>
+							{{ form.third_image | add_class:"form-control" }}
+
+							<!-- <div class="form-group" style="margin-top:10px" >
+								<label>Third Image:</label>
+								<div></div>
+								<div class="custom-file">
+								  	<input type="file" class="custom-file-input" id="customFile">
+								  	<label class="custom-file-label" for="customFile">Choose file</label>
+								</div>
+							</div> -->
+						</div>
+
+						<div class="col-md-4 mrg-btm-20">
+							<label>Forth Image:</label>
+							{{ form.forth_image | add_class:"form-control" }}
+
+							<!-- <div class="form-group" style="margin-top:10px" >
+								<label>Forth Image:</label>
+								<div></div>
+								<div class="custom-file">
+								  	<input type="file" class="custom-file-input" id="customFile">
+								  	<label class="custom-file-label" for="customFile">Choose file</label>
+								</div>
+							</div> -->
+						</div>
+
+						<div class="col-md-4 mrg-btm-20">
+							<label>Fifth Image:</label>							
+							{{ form.fifth_image | add_class:"form-control" }}
+
+							<!-- <div class="form-group" style="margin-top:10px" >
+								<label>Fifth Image:</label>
+								<div></div>
+								<div class="custom-file">
+								  	<input type="file" class="custom-file-input" id="customFile">
+								  	<label class="custom-file-label" for="customFile">Choose file</label>
+								</div>
+							</div> -->
+						</div>
+
+					</div>
+				</div>
+				<div class="kt-portlet__foot">
+					<div class="kt-form__actions">
+						<button type="submit" class="btn btn-brand">Submit</button>
+						<button type="reset" class="btn btn-secondary">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-- <form action="" method="post">
+			<div class="form-group">
+			{% csrf_token %}
+			{{ form }}
+			<button type="submit"> Submit</button>
+		</form> -->
+
+	</div>
+</div>
+
+
+
+<!-- add pet -->
+<!-- <form action="" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{form}}
+
+	<button type="submit"> save</button>
+
+</form> -->
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+{% block dashboardcontent %}
+
+<div class="kt-portlet kt-portlet--mobile">
+	<div class="kt-portlet__head kt-portlet__head--lg">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="kt-font-brand flaticon2-line-chart"></i>
+			</span>
+			<h3 class="kt-portlet__head-title">
+				New Post
+			</h3>
+		</div>
+
+	</div>
+
+	<div class="kt-portlet__body">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Post</button>
+
+        </form>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block forums %}
+<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+<a  href="{% url 'pets:forums' %}" class="kt-menu__link kt-menu__toggle">
+<i class="kt-menu__link-icon flaticon2-laptop"></i>
+<span class="kt-menu__link-text">Forums</span>
+<i class="kt-menu__ver-arrow la la-angle-right"></i>
+</a>
+</li>
+{% endblock %}

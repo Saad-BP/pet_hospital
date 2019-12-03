@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block maincontent %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link href="{% static 'assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/vendors/custom/js/vendors/bootstrap-datepicker.init.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/demo12/pages/crud/forms/widgets/bootstrap-datepicker.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/demo12/scripts.bundle.js' %}" type="text/javascript"></script>
+
+	
+		<div class="main">
+			<div class="signup_container">
+				<div class="signup-content">
+					<div class="signup-img">
+						<img src="{% static 'images/CatandDog.webp' %}" alt="">
+					</div>
+					<div class="signup-form">
+						<form method="POST" action="" class="register-form" id="register-form">
+						{% csrf_token %}
+							<h2>Sign Up</h2>
+							
+							<div class="form-row">
+								<div class="form-group">
+									<label for="name">Name :</label>
+									{{ form.name }}
+								</div>
+								<div class="form-group">
+									<label for="father_name">Email: </label>
+									{{ form.email }}
+
+									{% if form.email.errors %}
+										<div class="alert alert-warning sginup_error" role="alert">
+										  {{ form.email.errors }}
+										</div>
+									{% endif %}
+
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group">
+									<label for="name">Password :</label>
+									{{ form.password }}
+									{% if form.password.errors %}
+										<div class="alert alert-warning sginup_error" role="alert">
+										  {{ form.password.errors }}
+										</div>
+									{% endif %}
+								</div>
+								<div class="form-group">
+									<label for="father_name">Confirm Password: </label>
+									{{ form.confirm_password }}
+
+									{% if form.errors %}
+										{% for error in form.non_field_errors %}
+											<div class="alert alert-warning sginup_error" role="alert">
+											  {{ error }}
+											</div>
+										{% endfor %}
+									{% endif %}
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="address">Address :</label>
+								{{ form.address }}
+							</div>
+							<div class="form-group">
+								<label for="gender" class="radio-label">Gender </label>
+								{{ form.gender }}
+							</div>
+							<div class="form-group">
+								<label for="birth_date">Date of Birth :</label>
+								{{ form.date_of_birth }}
+
+								{% if form.date_of_birth.errors %}
+									<div class="alert alert-warning sginup_error" role="alert">
+									  {{ form.date_of_birth.errors }}
+									</div>
+								{% endif %}
+								<!-- <div class="input-group date">
+									<input type="text" class="form-control" readonly  placeholder="Select date" id="kt_datepicker_2"/>
+									<div class="input-group-append">
+										<span class="input-group-text">
+											<i class="la la-calendar-check-o"></i>
+										</span>
+									</div>
+								</div> -->
+							</div>
+							<div class="form-group">
+								<label for="pincode">Phone :</label>
+								{{ form.phone }}
+
+								{% if form.phone.errors %}
+									<div class="alert alert-warning sginup_error" role="alert">
+									  {{ form.phone.errors }}
+									</div>
+								{% endif %}
+							</div>
+							<div class="form-submit">
+								<input type="submit" value="Sign Up" class="submit" name="submit" id="submit" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+{% endblock %}

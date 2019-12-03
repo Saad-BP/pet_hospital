@@ -1,0 +1,92 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+
+
+{% block dashboardcontent %}
+
+
+<div class="kt-portlet kt-portlet--mobile" id="print_pdf">
+	<div class="kt-portlet__head kt-portlet__head--lg">
+		<div class="kt-portlet__head-label">
+			<h3 class="kt-portlet__head-title">
+				Prescription
+			</h3>
+		</div>
+		<div class="kt-portlet__head-toolbar">
+			<div class="kt-portlet__head-wrapper">
+				<div class="kt-portlet__head-actions">
+					<button class="btn btn-brand btn-elevate btn-icon-sm" onclick="printPage('print_pdf');" >
+						<i class="la la-print"></i>
+						Print Prescription
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="kt-portlet__body">
+		<div class="doctor-prescription">
+			<div class="dr-name">
+				<h3 class="title-color">Dr. {{appointment.assigned_doctor.name}}</h3>
+				<h4 class="title-color">Medicine Specialist</h4>
+			</div>
+			<div class="prescription-no">
+				<h3 class="title-color">Appointment Date: {{ appointment.appointment_date }}</h3>
+				<h3 class="title-color">Prescription no: [123456]</h3>
+			</div>
+		</div>
+
+		<div class="pet-section">
+			<div class="pet-section-color">
+				<h5>Pet Name: {{ appointment.pet.name }}</h5>
+				<h5>Animal type: {{ appointment.pet.get_animal_type_display }}</h5>
+				<h5>Date of birth: {{ appointment.pet.date_of_birth }}</h5>
+			</div>
+			<div class="pet-section-color">
+				<h5>Owner Name: {{ appointment.pet.owner.name }}</h5>
+				<h5>Phone: {{ appointment.pet.owner.phone }}</h5>
+			</div>
+		</div>
+
+		<div class="observation">
+			<h3 class="title-color">Observation:</h3>
+			<p class="p-text">{{ appointment.prescription.observation }}</p>
+		</div>
+
+		<div class="treatment">
+			<h3 class="title-color">Treatment:</h3>
+			<p class="p-text">{{ appointment.prescription.treatment }}</p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+function printPage(divName) {
+	document.title = "Prescription";
+	$(".print_hide").hide();
+	$("h1").css("font-size","18px");
+	$("h1").css("margin-bottom","5px");
+	$(".print_class").hide();
+	 var printContents = document.getElementById(divName).innerHTML;
+	 var originalContents = document.body.innerHTML;
+	 document.body.innerHTML = printContents;
+	 window.print();
+	 document.body.innerHTML = originalContents;
+	$(".print_class").show();
+	$("h1").css("font-size","20px");
+	$(".print_hide").show();
+}
+</script>
+{% endblock %}
+
+
+{% block appointments %}
+<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+	<a  href="{% url 'pets:appointments' %}" class="kt-menu__link kt-menu__toggle">
+		<i class="kt-menu__link-icon flaticon2-telegram-logo"></i>
+		<span class="kt-menu__link-text">Appointments</span>
+		<i class="kt-menu__ver-arrow la la-angle-right"></i>
+	</a>
+</li>
+{% endblock %}
